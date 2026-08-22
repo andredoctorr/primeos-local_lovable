@@ -73,9 +73,10 @@ export function useLocation() {
 }
 
 export function useParams<T extends Record<string, string>>() {
-  return useRouterState({
+  const params = useRouterState({
     select: (s) => (s.matches.at(-1)?.params ?? {}) as Record<string, string>,
-  }) as T;
+  });
+  return params as T;
 }
 
 export function useSearchParams(): [
