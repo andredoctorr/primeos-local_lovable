@@ -18,7 +18,7 @@ import {
   supabaseProjectId,
   supabaseRestUrl,
   storageBucket as defaultStorageBucket,
-} from '../../supabase/supabaseClient.js';
+} from '@/lib/supabase';
 import { createEntity } from './entities/base.js';
 import { appParams } from '@/lib/app-params';
 
