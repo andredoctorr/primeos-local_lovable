@@ -70,7 +70,7 @@ Cada resposta deve ser:
           },
           response_3: {
             type: "object",
-            properties": {
+            properties: {
               type: { type: "string" },
               content: { type: "string" }
             }
