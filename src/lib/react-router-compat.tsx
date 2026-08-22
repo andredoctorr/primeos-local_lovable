@@ -38,7 +38,7 @@ export const Link = forwardRef<
           return;
         }
         event.preventDefault();
-        router.navigate({ href, replace });
+        navigateTo(router, href, replace);
       }}
       {...rest}
     >
@@ -49,6 +49,14 @@ export const Link = forwardRef<
 
 export const NavLink = Link;
 
+function navigateTo(
+  router: ReturnType<typeof useRouter>,
+  href: string,
+  replace?: boolean,
+) {
+  router.navigate(replace === undefined ? { href } : { href, replace });
+}
+
 export function useNavigate() {
   const router = useRouter();
   return (to: To | number, options?: { replace?: boolean }) => {
@@ -56,7 +64,7 @@ export function useNavigate() {
       if (typeof window !== "undefined") window.history.go(to);
       return;
     }
-    router.navigate({ href: toHref(to), replace: options?.replace });
+    navigateTo(router, toHref(to), options?.replace);
   };
 }
 
@@ -65,7 +73,9 @@ export function useLocation() {
 }
 
 export function useParams<T extends Record<string, string>>() {
-  return useRouterState({ select: (s) => s.matches.at(-1)?.params ?? {} }) as T;
+  return useRouterState({
+    select: (s) => (s.matches.at(-1)?.params ?? {}) as Record<string, string>,
+  }) as T;
 }
 
 export function useSearchParams(): [
@@ -80,10 +90,7 @@ export function useSearchParams(): [
       next instanceof URLSearchParams
         ? next.toString()
         : new URLSearchParams(next).toString();
-    router.navigate({
-      href: `${window.location.pathname}${qs ? `?${qs}` : ""}`,
-      replace: true,
-    });
+    navigateTo(router, `${window.location.pathname}${qs ? `?${qs}` : ""}`, true);
   };
   return [params, setParams];
 }
@@ -91,7 +98,7 @@ export function useSearchParams(): [
 export function Navigate({ to, replace }: { to: To; replace?: boolean }) {
   const router = useRouter();
   if (typeof window !== "undefined") {
-    queueMicrotask(() => router.navigate({ href: toHref(to), replace }));
+    queueMicrotask(() => navigateTo(router, toHref(to), replace));
   }
   return null;
 }
