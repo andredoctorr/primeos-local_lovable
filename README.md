@@ -1,7 +1,6 @@
 # PrimeOS Visuals
 
-I have build an react/vite app, the primeos and now i want to edit it at lovable, for making it better in UI visual aspects,  https://github.com/AndrePrimeLabs/primeos-local, how i can use lovable with it
-
+React/vite app, inspect UI visual aspects,  https://github.com/AndrePrimeLabs/primeos-local
 This project was built with [Lovable](https://lovable.dev).
 
 **Live app**: https://primeoshub.lovable.app
