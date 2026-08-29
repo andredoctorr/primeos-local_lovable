@@ -5,6 +5,8 @@ import { queryClientInstance } from "@/lib/query-client";
 import { AuthProvider } from "@/lib/AuthContext";
 import { pagesConfig } from "@/pages.config";
 import PageNotFound from "@/lib/PageNotFound";
+import AuthGate from "@/components/auth/AuthGate";
+import { Toaster } from "@/components/ui/sonner";
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -30,11 +32,14 @@ export default function PrimeApp() {
   return (
     <QueryClientProvider client={queryClientInstance}>
       <AuthProvider>
-        {Layout ? (
-          <Layout currentPageName={pageKey ?? ""}>{content}</Layout>
-        ) : (
-          content
-        )}
+        <AuthGate>
+          {Layout ? (
+            <Layout currentPageName={pageKey ?? ""}>{content}</Layout>
+          ) : (
+            content
+          )}
+        </AuthGate>
+        <Toaster />
       </AuthProvider>
     </QueryClientProvider>
   );
