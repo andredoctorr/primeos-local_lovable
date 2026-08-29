@@ -32,11 +32,14 @@ export default function PrimeApp() {
   return (
     <QueryClientProvider client={queryClientInstance}>
       <AuthProvider>
-        {Layout ? (
-          <Layout currentPageName={pageKey ?? ""}>{content}</Layout>
-        ) : (
-          content
-        )}
+        <AuthGate>
+          {Layout ? (
+            <Layout currentPageName={pageKey ?? ""}>{content}</Layout>
+          ) : (
+            content
+          )}
+        </AuthGate>
+        <Toaster />
       </AuthProvider>
     </QueryClientProvider>
   );
