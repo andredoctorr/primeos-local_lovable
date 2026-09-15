@@ -83,9 +83,13 @@ const navigation = [
   { name: "Jornada do Cliente", href: "JourneyMapping", icon: Map },
   { name: "Portal do Cliente", href: "ClientPortal", icon: UserCheck },
   { name: "Pipeline de Clientes", href: "CustomerPipeline", icon: TrendingUp },
+  { name: "Pipeline", href: "Pipeline", icon: TrendingUp },
+  { name: "Histórico do Cliente", href: "CustomerHistory", icon: BookOpen },
+  { name: "Atendimento a Clientes", href: "AtendimentoClientes", icon: HeadphonesIcon },
 
   { section: "Vendas" },
   { name: "Leads", href: "LeadsPipeline", icon: Users },
+  { name: "Origem de Leads", href: "LeadSources", icon: Target },
   { name: "Pipeline Vendas", href: "SalesPipeline", icon: TrendingUp },
   { name: "Vendas", href: "Sales", icon: DollarSign },
   { name: "Revenue Stream", href: "RevenueStreams", icon: ShoppingCart },
@@ -99,6 +103,7 @@ const navigation = [
   { name: "Email Automation", href: "EmailAutomation", icon: Mail },
   { name: "Marketing Automation", href: "MarketingAutomation", icon: Zap },
   { name: "Canais Marketing", href: "Channels", icon: Megaphone },
+  { name: "WhatsApp Automático", href: "WhatsAppAutomation", icon: Zap },
 
   { section: "Finanças" },
   { name: "Dashboard Financeiro", href: "DashboardFinanceiro", icon: BarChart3 },
@@ -107,6 +112,7 @@ const navigation = [
   { name: "Relatórios Consultas", href: "AppointmentReports", icon: BarChart3 },
   { name: "Relatórios Vendas", href: "SalesReports", icon: BarChart3 },
   { name: "Relatórios Avançados", href: "AdvancedReports", icon: BarChart3 },
+  { name: "Relatórios Financeiros", href: "RelatoriosFinanceiros", icon: BarChart3 },
 
   { section: "Analytics & Métricas" },
   { name: "Métricas", href: "Metricas", icon: BarChart3 },
@@ -134,6 +140,8 @@ const navigation = [
   { name: "Gamificação", href: "Gamification", icon: Gamepad2 },
   { name: "Admin Panel", href: "AdminPanel", icon: Shield },
   { name: "Booking Online", href: "OnlineBooking", icon: Globe },
+  { name: "Backup", href: "Backup", icon: Package },
+  { name: "Configuração de API", href: "APIConfig", icon: Key },
 ];
 
 export default function Layout({ children, currentPageName }) {
