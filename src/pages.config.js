@@ -112,6 +112,14 @@ import TaskCalendar from './pages/TaskCalendar';
 import Tasks from './pages/Tasks';
 import ValueProposition from './pages/ValueProposition';
 import DatabaseMap from './pages/DatabaseMap';
+import Pipeline from './pages/Pipeline';
+import LeadSources from './pages/LeadSources';
+import CustomerHistory from './pages/CustomerHistory';
+import AtendimentoClientes from './pages/AtendimentoClientes';
+import RelatoriosFinanceiros from './pages/RelatoriosFinanceiros';
+import WhatsAppAutomation from './pages/WhatsAppAutomation';
+import Backup from './pages/Backup';
+import APIConfig from './pages/APIConfig';
 import __Layout from './Layout.jsx';
 
 
@@ -180,6 +188,14 @@ export const PAGES = {
     "Tasks": Tasks,
     "ValueProposition": ValueProposition,
     "DatabaseMap": DatabaseMap,
+    "Pipeline": Pipeline,
+    "LeadSources": LeadSources,
+    "CustomerHistory": CustomerHistory,
+    "AtendimentoClientes": AtendimentoClientes,
+    "RelatoriosFinanceiros": RelatoriosFinanceiros,
+    "WhatsAppAutomation": WhatsAppAutomation,
+    "Backup": Backup,
+    "APIConfig": APIConfig,
 }
 
 export const pagesConfig = {
